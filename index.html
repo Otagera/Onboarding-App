@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="refresh" content="1000; url=index.html" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<base href="" />
+	<title>
+		Assignment For Management System
+	</title>
+	<!-- <script>
+		document.write(
+			'<script src="http://' +
+			(location.host || "localhost").split(":")[0] +
+			':35729/livereload.js?snipver=1"></' +
+			"script>"
+		);
+	</script> -->
+	<!-- <link rel="stylesheet" href="https://unpkg.com/simplebar@5.1.0/dist/simplebar.css"/> -->
+	<link rel="stylesheet" type="text/css" href="./scroll/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="./css/index.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="./css/indexBare.css"> -->
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<aside id="sideBar" class="col-md-2">
+				<img class="img-left img-fluid" src="./img/Sick Earth.jpg" alt="Just some friking sick earth"
+					width="240" height="240" title="Just a picture of a dying Earth" />
+
+				<div id="divOfButtons">
+					<button id="dayButton">
+						<span> Day </span>
+					</button>
+					<br />
+					<button id="endButton">
+						<span> End </span>
+					</button>
+				</div>
+			</aside>
+			<div class="col-md-10">
+				<div class="row">
+					<div class="col-md-6">CodeSchool Onboarding Application</div>
+					<div class="col-md-6 row">
+						<div class="col-md-3"></div>
+						<div class="col-md-3">Logout</div>
+						<div class="col-md-3">Icon</div>
+						<div class="col-md-3">Hi Othniel</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h3>Onboarding</h3>
+						<h5>Manage all Codeschool data and information here.</h5>
+					</div>
+					<div class="col-md-6">
+						<div id="addDiv">
+							Onboard New User
+							<button type="button" class="btn btn-light" id="addButton">
+								<span class="fas fa-plus fa-2x"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div id="mainPage">
+					<div id="topOfStudentList">
+						<div class="input-group">
+							<input id="searchInput" class="inputs form-control" type="text" name="name" placeholder="Search...." autofocus />
+							<span class="input-group-btn">
+								<button class="btn btn-dark" id="searchButton" type="button">Search!!!</button>
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<div id="studentList" data-simplebar class="col-md-3">
+							<div id="list">
+								<!-- <div class="list-element" data-id="${namesList[i].id}">
+										<p class="list-element-p" data-id="${namesList[i].id}">${namesList[i].name}</p>
+										<button type="button" class="btn btn-light list-element-btn" data-id="${namesList[i].id}">
+											<span class="fas fa-trash fa-1x"></span>
+										</button>
+									</div>
+									<div class='clear'></div> -->
+							</div>
+						</div>
+						<div>
+							<div id="displayInfo" class="col-md-9">
+								<div id="realDisplay">
+									<p for="nameInput">Name</p>
+									<div class="input-group mb-3">
+										<input id="nameInput" class="inputs form-control" type="text" name="name" placeholder="Please enter your name...." autofocus />
+									</div>
+									<p for="emailInput">Email Address</p>
+									<div class="input-group mb-3">
+										<input id="emailInput" class="inputs form-control" type="email" name="address" placeholder="username@codeschoolmgt.com" autofocus />
+									</div>									
+									<p for="addressInput">Address</p>
+									<div class="input-group mb-3">
+										<input id="addressInput" class="inputs form-control" type="text" name="address" placeholder="Please enter your Address...." autofocus />
+									</div>									
+									<p for="ageInput">Age</p>
+									<div class="input-group mb-3">
+										<input id="ageInput" class="inputs form-control" type="text" name="age" placeholder="Please enter your Age...." autofocus />
+									</div>
+									<div class="input-group mb-3">
+										<div class="input-group-append">
+											<label class="input-group-text" for="classState">Choose You Class Session</label>
+										</div>
+										<select class="custom-select" id="classState">
+											<option selected></option>
+											<option value="1">Weekday</option>
+											<option value="2">Weekend</option>
+										</select>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<p>ID: </p><p id="idDisplay"></p>
+										</div>
+										<div class="col-md-6">
+											<button id="submitButton" class="btn btn-dark"> Submit </button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="clear"></div>
+	<!-- <script src="https://unpkg.com/simplebar@5.1.0/dist/simplebar.min.js"></script> -->
+	<script type="text/javascript" src="./jQuery/jquery-3.5.0.min.js"></script>
+	<script type="text/javascript" src="./scroll/simplebar.min.js"></script>
+	<script type="text/javascript" src="./js/all.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

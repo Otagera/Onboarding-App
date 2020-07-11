@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+    font-family: tahoma, sans-serif;
+}
+
+.clear {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+div.container {
+	background-color: #e6e6e6; 
+}
+
+aside#sideBar {
+	height: 690px;
+	 background-color: #e6e6e6; 
+}
+
+div#topOfStudentList {
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 25%;
+}
+div#studentList{
+	padding-top: 10px;
+	margin-top: 10px;
+	border: solid 0.5px;
+	padding-left: 30px;
+	width: 30%;
+	height: 400px;
+	background-color: #efefef;
+	/*visibility: hidden;*/
+}
+
+div.list-element {
+	display: flex;
+	flex-direction: row;
+	height: 38px;
+}
+
+div.list-element p{
+	padding-top: 10px;
+	margin-right: 60px;
+	height: 40px;
+	width: 100px;
+	font-family: tahoma, sans-serif;
+	font-size: .9em;
+	text-align: center;
+	background-color: #eeeecc;
+	color: #da1;
+	border-radius: 10px;
+    line-height: 0.99;
+	/*visibility: hidden;*/
+}
+
+div.list-element p:hover {
+	background:#666;
+	color:#fff
+}
+
+div#displayInfo{
+	border: solid 0.5px;
+	width: 600px;
+	height: 450px;
+	background-color: #ffffff;
+	margin-left: 30px;
+	margin-top: 10px;
+	padding: 0;
+    line-height: 0.5;
+}
+
+div#realDisplay{
+	padding-left: 12px;
+	margin-right: 70px;
+	margin-top: 3%;
+}
+
+div#realDisplay p{
+	font: sans-serif;
+	line-height: 1px;
+	padding-left: 10px;
+}
+
+div#realDisplay input{
+	width: 250px;
+	margin-bottom: 10px;
+}
+button#editButton {
+ 	display: inline-block;
+	width: 20%;
+	border-radius: 10px;
+	border-radius:42px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color: black;
+	font-family:Verdana;
+	font-size:15px;
+	font-style:italic;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:-2px 0px 3px #c8cbd4;
+}
+button#editButton:hover {
+	background-color: #9fb4f2;
+	color: white;
+	padding-right: 25px;
+}
+
+div#divOfButtons button{
+ 	display: inline-block;
+	width: 100%;
+	border-radius: 10px;
+	box-shadow:inset -26px 2px 15px -11px #9fb4f2;
+	background-color:transparent;
+	border-radius:42px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	font-style:italic;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:-2px 0px 3px #c8cbd4;
+}
+
+div#divOfButtons button span{
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+div#divOfButtons button span:after{
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+div#divOfButtons button:hover span{
+	background-color: #9fb4f2;
+	color: white;
+	padding-right: 25px;
+}
+
+div#divOfButtons button:hover span:after{
+	opacity: 1;
+	right: 0;
+}
+div#divOfButtons button:active {
+	position:relative;
+	top:1px;
+}
+
+.simplebar-scrollbar:before {
+	background-color: #eeeecc;
+}
+
+img.img-left {
+	display: block;
+	float: left;
+	border: solid 2px #555;
+	padding: 2px;
+	margin: 3px 6pt 3px 5px;
+}
