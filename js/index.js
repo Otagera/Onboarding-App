@@ -11,29 +11,72 @@ class Student{
 		return "Class: " + "Hello " + this.name + " of " + this.age + "years of age, your email address is: " + this.email + " you live at: " + this.address;
 	}
 }
-//day
-let john = new Student("John", "john@codeschoolmgt.com", "Angola Close", "90", "Weekday");
-let peter = new Student("Peter", "peter@codeschoolmgt.com", "Angola Close", "90", "Weekday");
-let judas = new Student("Judas", "judas@codeschoolmgt.com", "Angola Close", "90", "Weekday");
-let james = new Student("James", "james@codeschoolmgt.com", "Angola Close", "90", "Weekday");
-let paul = new Student("Paul", "paul@codeschoolmgt.com", "Angola Close", "90", "Weekday");
-let timothy = new Student("Timothy", "timothy@codeschoolmgt.com", "Angola Close", "90", "Weekday");
-let elijah = new Student("Elijah", "elijah@codeschoolmgt.com", "Angola Close", "90", "Weekday");
-let jacob = new Student("Jacob", "jacob@codeschoolmgt.com", "Angola Close", "90", "Weekday");
-let judah = new Student("Judah", "judah@codeschoolmgt.com", "Angola Close", "90", "Weekday");
-let namesWDay = [john, peter, judas, james, paul, timothy, elijah, jacob, judah];
-//end
-let skido = new Student("Skido", "skido@codeschoolmgt.com", "Angola Close", "90", "Weekend");
-let chill = new Student("Chill", "chill@codeschoolmgt.com", "Angola Close", "90", "Weekend");
-let lisky = new Student("Lisky", "lisky@codeschoolmgt.com", "Angola Close", "90", "Weekend");
-let swiss = new Student("Swiss", "swiss@codeschoolmgt.com", "Angola Close", "90", "Weekend");
-let jin = new Student("Jin", "jin@codeschoolmgt.com", "Angola Close", "90", "Weekend");
-let mex = new Student("Mex", "mex@codeschoolmgt.com", "Angola Close", "90", "Weekend");
-let jada = new Student("Jada", "jada@codeschoolmgt.com", "Angola Close", "90", "Weekend");
-let tizza = new Student("Tizza", "tizza@codeschoolmgt.com", "Angola Close", "90", "Weekend");
-let recidivist = new Student("Recidivist", "recidivist@codeschoolmgt.com", "Angola Close", "90", "Weekend");
-let namesWEnd = [skido, chill, lisky, swiss, jin, mex, jada, tizza, recidivist];
 
+function setLocalStorage(tempState){
+	if(tempState === "Day"){
+		localStorage.namesWDay = JSON.stringify(namesWDay);
+	} else if(tempState === "End"){
+		localStorage.namesWEnd = JSON.stringify(namesWEnd);
+	}
+}
+
+function getLocalStorage(tempState){
+	if(tempState === "Day"){
+		let parsed = JSON.parse(localStorage.namesWDay);
+		parsed.forEach(function(stud, i){
+			let tempStudent = new Student(stud.name, stud.email, stud.address, stud.age, stud.state);
+			tempStudent.id = stud.id;
+			namesWDay.push(tempStudent);
+		});
+	} else if(tempState === "End"){
+		let parsed = JSON.parse(localStorage.namesWEnd);
+		parsed.forEach(function(stud, i){
+			let tempStudent = new Student(stud.name, stud.email, stud.address, stud.age, stud.state);
+			tempStudent.id = stud.id;
+			namesWEnd.push(tempStudent);
+		});
+	}
+	
+}
+//day
+let namesWDay = [];
+
+if(!localStorage.namesWDay || JSON.parse(localStorage.namesWDay).length === 0) {
+	let john = new Student("John", "john@codeschoolmgt.com", "Angola Close", "90", "Weekday");
+	let peter = new Student("Peter", "peter@codeschoolmgt.com", "Angola Close", "90", "Weekday");
+	let judas = new Student("Judas", "judas@codeschoolmgt.com", "Angola Close", "90", "Weekday");
+	let james = new Student("James", "james@codeschoolmgt.com", "Angola Close", "90", "Weekday");
+	let paul = new Student("Paul", "paul@codeschoolmgt.com", "Angola Close", "90", "Weekday");
+	let timothy = new Student("Timothy", "timothy@codeschoolmgt.com", "Angola Close", "90", "Weekday");
+	let elijah = new Student("Elijah", "elijah@codeschoolmgt.com", "Angola Close", "90", "Weekday");
+	let jacob = new Student("Jacob", "jacob@codeschoolmgt.com", "Angola Close", "90", "Weekday");
+	let judah = new Student("Judah", "judah@codeschoolmgt.com", "Angola Close", "90", "Weekday");
+	namesWDay = [john, peter, judas, james, paul, timothy, elijah, jacob, judah];
+
+	setLocalStorage("Day");
+}else {
+	getLocalStorage("Day");
+}
+
+//end
+let namesWEnd = [];
+
+if(!localStorage.namesWEnd) {
+	let skido = new Student("Skido", "skido@codeschoolmgt.com", "Angola Close", "90", "Weekend");
+	let chill = new Student("Chill", "chill@codeschoolmgt.com", "Angola Close", "90", "Weekend");
+	let lisky = new Student("Lisky", "lisky@codeschoolmgt.com", "Angola Close", "90", "Weekend");
+	let swiss = new Student("Swiss", "swiss@codeschoolmgt.com", "Angola Close", "90", "Weekend");
+	let jin = new Student("Jin", "jin@codeschoolmgt.com", "Angola Close", "90", "Weekend");
+	let mex = new Student("Mex", "mex@codeschoolmgt.com", "Angola Close", "90", "Weekend");
+	let jada = new Student("Jada", "jada@codeschoolmgt.com", "Angola Close", "90", "Weekend");
+	let tizza = new Student("Tizza", "tizza@codeschoolmgt.com", "Angola Close", "90", "Weekend");
+	let recidivist = new Student("Recidivist", "recidivist@codeschoolmgt.com", "Angola Close", "90", "Weekend");
+	namesWEnd = [skido, chill, lisky, swiss, jin, mex, jada, tizza, recidivist];
+
+	setLocalStorage("End");
+}else {
+	getLocalStorage("End");
+}
 let dayButton = $("#dayButton");
 let endButton = $("#endButton");
 let addButton = $("#addButton");
@@ -42,7 +85,6 @@ let deleteButton = $("#deleteButton");
 let searchButton = $("#searchButton");
 let inputs = $(".inputs");
 let list = $("#list");
-
 
 
 
@@ -279,19 +321,6 @@ list.on("click", ".close", ()=>{
 })
 list.on("click", ".list-element-p", (p) => {
 	easy(p, "p");
-	/*let tempArray = [];
-	if(state === "Day"){
-		tempArray = namesWDay;
-	} else if(state === "End"){
-		tempArray = namesWEnd;
-	}else if (state === "Search"){
-		tempArray = searchResult;
-	}
-	for(let i in tempArray) {
-		if(tempArray[i].id == p.target.dataset.id){
-			setDetailDisplay(tempArray[i]);
-		}
-	}*/
 });
 function easy(p, op){
 	let tempArray = [];
@@ -314,10 +343,14 @@ function easy(p, op){
 		}
 	}else if(op === "btn"){
 		for(let i in tempArray) {
+			//console.log(tempArray[i].id);
+			//console.log(p.target.dataset.id);
 			if(tempArray[i].id == p.target.dataset.id){
+				console.log("BTN CLICK");
 				setDetailDisplay();
 				tempArray.splice(i,1);
 				removeFromList($(`div[data-id='${p.target.dataset.id}']`), list);
+				setLocalStorage(state);
 				onClick();
 			}
 		}
@@ -325,26 +358,8 @@ function easy(p, op){
 	
 }
 list.on("click", ".list-element-btn", (p) => {
+	console.log("BTN CLICK");
 	easy(p, "btn");
-	/*if(state === "Day"){
-		for(let i in namesWDay) {
-			if(namesWDay[i].id == p.target.dataset.id){
-				setDetailDisplay();
-				namesWDay.splice(i,1);
-				removeFromList($(`div[data-id='${p.target.dataset.id}']`), list);
-				dayOnClick();
-			}
-		}
-	} else if(state === "End"){
-		for(let i in namesWEnd) {
-			if(namesWEnd[i].id == p.target.dataset.id){
-				setDetailDisplay();
-				namesWEnd.splice(i,1);
-				removeFromList($(`div[data-id='${p.target.dataset.id}']`), list);
-				endOnClick();
-			}
-		}
-	}*/
 });
 
 //for ajax style search when eventually hooked to a database
